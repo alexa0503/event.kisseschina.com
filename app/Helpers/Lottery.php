@@ -47,14 +47,14 @@ class Lottery
         //一个用户只能中一次奖
         $model = \App\Lottery::where('user_id', $wechat_user->id)
             ->where('prize_id', '>', 0)
-            //->where('lottery_time', '>=', date('Y-m-d', $timestamp))
-            //->where('lottery_time', '<=', date('Y-m-d 23:59:59', $timestamp))
+            ->where('lottery_time', '>=', date('Y-m-d', $timestamp))
+            ->where('lottery_time', '<=', date('Y-m-d 23:59:59', $timestamp))
             ->sharedLock();
         $count1 = $model->count();
         if( $count1 > 0 ){
-            $lottery = $model->first();
-            $this->prize_id = $lottery->prize_id;
-            $this->prize_code = $lottery->prizeCode->code;
+            //$lottery = $model->first();
+            //$this->prize_id = $lottery->prize_id;
+            //$this->prize_code = $lottery->prizeCode->code;
             return;
         }
 
@@ -112,6 +112,7 @@ class Lottery
             $this->prize_config_id = $prize_config->id;
         }
         //判断该用户是否中过此奖项
+        /*
         $count2 = \App\Lottery::where('user_id', $wechat_user->id)
         ->where('prize_id', $prize->id)
         ->sharedLock()
@@ -119,6 +120,7 @@ class Lottery
         if( $count2 > 0){
             return;
         }
+        */
         $this->prize_id = $prize->id;
         return;
     }
