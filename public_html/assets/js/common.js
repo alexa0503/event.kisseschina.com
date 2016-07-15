@@ -202,6 +202,7 @@ function goEnd() {
 		success: function(json){
 			$('.page2').fadeOut(500);
 			if(json && json.ret == 0 && json.prize.id == 1){
+                wxShare({'desc':'你有一张《冰川时代5：星际碰撞》电影票未领取！'})
                 $('#prize_code').text(json.prize.code);
 				$('.page4').fadeIn(500);
 		        ga('send', 'pageview', '电影票页');

@@ -27,22 +27,22 @@ $('document').ready(function () {
         }
     })
 })
-function wxShare(){
+function wxShare(data){
     wx.ready(function () {
         wx.onMenuShareAppMessage({
-            title: wxData.title,
-            desc: wxData.desc,
-            link: wxData.link,
-            imgUrl: wxData.imgUrl,
+            title: data.title || wxData.title,
+            desc: data.desc || wxData.desc,
+            link: data.link || wxData.link,
+            imgUrl: data.imgUrl || wxData.imgUrl,
             trigger: function (res) {},
             success: function (res) {},
             cancel: function (res) {},
             fail: function (res) {}
         });
         wx.onMenuShareTimeline({
-            title: wxData.desc,
-            link: wxData.link,
-            imgUrl: wxData.imgUrl,
+            title: data.desc || wxData.desc,
+            link: data.link || wxData.link,
+            imgUrl: data.imgUrl || wxData.imgUrl,
             trigger: function (res) {},
             success: function (res) {
             },
