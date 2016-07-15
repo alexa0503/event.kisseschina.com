@@ -150,6 +150,9 @@ class Lottery
                 $lottery->prize_code_id = $prize_code->id;
                 $this->prize_code = $prize_code->code;
             }
+            else{
+                return;
+            }
             /*
             if( null == $this->prize_config_id){
                 $prize_config = \App\PrizeConfig::where('lottery_date', $date)->where('prize_id', $prize_id)->first();
