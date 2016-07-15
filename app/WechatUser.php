@@ -11,6 +11,10 @@ class WechatUser extends Model
     protected $casts = [
         'options' => 'array',
     ];
+    public function getNickNameAttribute($value)
+    {
+        return json_decode($value);
+    }
     public function lotteries()
     {
         return $this->hasMany('App\Lottery','user_id');

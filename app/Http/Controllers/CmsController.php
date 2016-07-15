@@ -30,7 +30,33 @@ class CmsController extends Controller
     public function index()
     {
         $count = \App\WechatUser::count();
-        return view('cms/dashboard',['count' => $count]);
+        $prizes = \App\Prize::all();
+        $start_time = strtotime(date('2016-06-30'));
+        $n = ceil((time() - $start_time) / (3600 * 24));
+        $data = [];
+        for ($i = 0; $i < $n; ++$i) {
+            $num = [];
+            $timestamp = $start_time + $i * 24 * 3600;
+            $date1 = date('Y-m-d', $timestamp);
+            $date2 = date('Y-m-d 23:59:59', $timestamp);
+            $prize_count = $prizes->map(function ($prize) use ($date1, $date2) {
+                    $count = \App\Lottery::where('prize_id', $prize->id)
+                        ->where('lottery_time', '>=', $date1)
+                        ->where('lottery_time', '<=', $date2)
+                        ->count();
+
+                return $count;
+            });
+            $data[$date1] = $prize_count;
+        }
+        $prize_count = $prizes->map(function ($prize) {
+                $count = \App\Lottery::where('prize_id', $prize->id)
+                    ->count();
+
+            return $count;
+        });
+        $data['Total'] = $prize_count;
+        return view('cms/dashboard',['count' => $count, 'prizes' => $prizes, 'data' => $data]);
     }
 
     /**
@@ -78,28 +104,26 @@ class CmsController extends Controller
      */
     public function export()
     {
-        $filename = 'lottery'.date('YmdHis');
-        $collection = \App\Photo::all();
+        $filename = 'lottery-'.date('YmdHis');
+        $collection = \App\Lottery::whereNotNull('prize_id')->get();
         $data = $collection->map(function($item){
+            $code = $item->prize_code_id != null ? $item->prizeCode->code : '--';
             return [
                 $item->id,
-                $item->sid,
-                url('uploads/'.$item->image),
-                $item->attitude,
-                $item->self_name,
-                $item->friend_name,
-                $item->created_time,
-                $item->created_ip,
+                json_decode($item->user->nick_name),
+                $item->prizeInfo->title,
+                $code,
+                $item->lottery_time
             ];
         });
         Excel::create($filename, function($excel) use($data) {
-            $excel->setTitle('照片');
+            $excel->setTitle('中奖记录');
             // Chain the setters
             $excel->setCreator('Alexa');
             // Call them separately
-            $excel->setDescription('照片');
+            $excel->setDescription('中奖记录');
             $excel->sheet('Sheet', function($sheet) use($data) {
-                $sheet->row(1, array('ID','sid','照片地址','态度','自己名','朋友名','创建时间','创建IP'));
+                $sheet->row(1, array('ID','用户昵称','奖品','抽奖码','抽奖时间'));
                 $sheet->fromArray($data, null, 'A2', false, false);
             });
         })->download('xlsx');

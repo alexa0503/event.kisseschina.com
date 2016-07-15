@@ -25,7 +25,43 @@
                     </div>
                 </div>
                 <!-- Start .row -->
-                <div class="row" style="text-align: center;">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                    <!-- col-lg-12 start here -->
+                    <div class="panel panel-default">
+                        <!-- Start .panel -->
+                        <div class="panel-body">
+                                <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                    <thead>
+                                    <tr>
+                                        <th width="120">
+                                            日期\奖品
+                                        </th>
+                                        @foreach ( $prizes as $prize)
+                                        <th>{{$prize->title}}</th>
+                                        @endforeach
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($data as $date=>$nums)
+                                        <tr>
+                                            <td>
+                                                {{$date}}
+                                            </td>
+                                            @foreach ($nums as $num)
+                                            <td>
+                                                {{$num}}
+                                            </td>
+                                            @endforeach
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- End .row -->
             </div>

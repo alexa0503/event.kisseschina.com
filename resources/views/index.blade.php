@@ -1,166 +1,104 @@
 @extends('layouts.app')
-@section('style')
-<style>
-	@-ms-viewport { width:device-width; }
-	@media only screen and (min-device-width:800px) { html { overflow:hidden; } }
-	html { height:100%; }
-	body { height:100%; overflow:hidden; margin:0; padding:0; }
-</style>
-@endsection
-@section('headerScripts')
-<script src="{{asset('assets/js/jquery-1.9.1-mod.js')}}"></script>
-<script src="{{asset('assets/js/jquery.imgpreload-mod.js')}}"></script>
-<script src="{{asset('assets/js/touch.js')}}"></script>
-<script src="{{asset('assets/pano.js')}}"></script>
-<script src="{{asset('assets/js/common-mod.js')}}"></script>
-@endsection
-@section('content')
-<audio style="display:none; height:0;" src="{{asset('assets/images/bgm1.mp3')}}" autoplay loop id="bgm"></audio>
-<div class="pageOuter">
-	<div class="page0 page">
-    	<div class="h832">
-        	<div class="innerDiv">
-				<div class="page0Bg bgImg"></div>
-            	<div class="page0Img1 bgImg" style="display:none;"></div>
-                <div class="page0Img2 bgImg" style="display:none;"></div>
-                <img src="{{asset('assets/images/loadingImg.png')}}" class="abs loadingImg" style="display:none;">
-                <div class="loadTxt abs" style="display:none;">LOADING <span>0</span>%</div>
-
-                <div class="page0Img4 bgImg" style="display:none;"></div>
-                <a href="javascript:void(0);" class="abs indexBtn1" onClick="indexStartGame();" style="display:none;"><img src="{{asset('assets/images/space.gif')}}" width="250" height="52"></a>
-                <a href="javascript:void(0);" class="abs indexBtn2" onClick="showRule();" style="display:none;"><img src="{{asset('assets/images/space.gif')}}" width="250" height="52"></a>
-                <a href="javascript:void(0);" class="abs indexBtn3" onClick="showMyAward({{$prize_id}},'{{$prize_code}}');" style="display:none;"><img src="{{asset('assets/images/space.gif')}}" width="250" height="52"></a>
-
-                <div class="page0Img3 bgImg" style="display:none;"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="pageRule page" style="display:none;">
-    	<div class="h832">
-        	<div class="innerDiv">
-				<div class="page0RuleBg bgImg"></div>
-            	<div class="abs ruleBlock">
-                	<img src="{{asset('assets/images/ruleImg.png')}}">
+@section('content')<div class="pageOut">
+	<div class="innerDiv">
+    	<div class="page page0">
+            <div class="innerDiv">
+                <div class="abs loadingBlock">
+                	<div class="loadingBg"></div>
+                    <div class="loadingBar" style="width:0;"></div>
+                    <img src="{{asset('assets/images/loadingImg1.png')}}" class="abs loadingImg1">
+                    <img src="{{asset('assets/images/loadingImg4.png')}}" class="abs loadingImg4">
+                    <p class="abs loadingTxt"><span>0</span>%</p>
                 </div>
-                <a href="javascript:void(0);" class="abs indexBtn4" onClick="closeRule();"><img src="{{asset('assets/images/space.gif')}}" width="103" height="103"></a>
             </div>
         </div>
-    </div>
 
-    <div class="pageAward1 page" style="display:none;">
-    	<div class="h832">
-        	<div class="innerDiv">
-				<div class="page0Award page0Award1 bgImg"></div>
-                <img src="{{asset('assets/images/page0AwardQc.png')}}" class="bgImg" style="top:-145px;">
-                <a href="javascript:void(0);" class="abs indexBtn6" onClick="showShareNote();" style="top:454px;"><img src="{{asset('assets/images/space.gif')}}" width="252" height="52"></a>
-                <a href="javascript:void(0);" class="abs indexBtn5" onClick="closeAward();" style="top:790px;"><img src="{{asset('assets/images/space.gif')}}" width="103" height="103"></a>
-            </div>
-        </div>
-    </div>
-
-    <div class="pageAward2 page" style="display:none;">
-    	<div class="h832">
-        	<div class="innerDiv">
-				<div class="page0Award page0Award2 bgImg"></div>
-                <img src="{{asset('assets/images/page0AwardQc.png')}}" class="bgImg">
-                <div class="abs a3Numb" style="top:225px;">兑换码: <span id="prize_code_2"></span></div>
-                <a href="javascript:void(0);" class="abs indexBtn6b" onClick="showShareNote();" style="top:518px;"><img src="{{asset('assets/images/space.gif')}}" width="252" height="52"></a>
-                <a href="javascript:void(0);" class="abs indexBtn5" onClick="closeAward();" style="top:790px;"><img src="{{asset('assets/images/space.gif')}}" width="103" height="103"></a>
-            </div>
-        </div>
-    </div>
-
-    <div class="pageAward3 page" style="display:none;">
-    	<div class="h832">
-        	<div class="innerDiv">
-				<div class="page0Award page0Award3 bgImg"></div>
-                <img src="{{asset('assets/images/page0AwardQc.png')}}" class="bgImg">
-                <div class="abs a3Numb" style="top:200px;">兑换码: <span id="prize_code_3"></span></div>
-                <a href="javascript:void(0);" class="abs indexBtn6b" onClick="showShareNote();" style="top:508px;"><img src="{{asset('assets/images/space.gif')}}" width="252" height="52"></a>
-                <a href="javascript:void(0);" class="abs indexBtn5" onClick="closeAward();" style="top:790px;"><img src="{{asset('assets/images/space.gif')}}" width="103" height="103"></a>
-            </div>
-        </div>
-    </div>
-
-    <div class="pageAward0 page" style="display:none;">
-    	<div class="h832">
-        	<div class="innerDiv">
-				<div class="page0Award page0Award0 bgImg" onClick="closeAward();"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="page0Img5 bgImg" style="display:none;"></div>
-
-    <div class="page1 page" style="display:none;">
-    	<div class="h832">
-        	<div class="innerDiv">
-				<div class="page1Img1" id="page1Img1" style="display:none;"></div>
-                <div class="page1Img2" id="page1Img2" style="display:none;"></div>
-                <div id="pano" class="bgImg" style="width:640px;height:1039px; position:absolute; left:50%; margin-left:-320px; display:none;">
-                    <noscript><table style="width:100%;height:100%;"><tr style="vertical-align:middle;"><td><div style="text-align:center;">ERROR:<br/><br/>Javascript not activated<br/><br/></div></td></tr></table></noscript>
-                    <script>
-                        embedpano({swf: "{{asset('assets/krpano.swf')}}", xml: "{{asset('assets/tour.xml')}}", target: "pano", html5: "prefer", initvars: {design: "flat"}, passQueryParameters: !0});
-                    </script>
+        <div class="page page1" style="display:none;">
+            <div class="innerDiv">
+            	<div class="abs page1Btn">
+                	<div class="innerDiv">
+                    	<a href="javascript:void(0);" class="abs page1Btn1" onClick="showRule();ga('send','event','click','首页详情');"><img src="{{asset('assets/images/space.gif')}}" width="136" height="122"></a>
+                        <a href="javascript:void(0);" class="abs page1Btn2" onClick="goPage2();ga('send','event','click','首页抢票');"><img src="{{asset('assets/images/space.gif')}}" width="237" height="122"></a>
+                    </div>
                 </div>
-
-                <!--<img src="{{asset('assets/images/page1Img8.png')}}" class="abs page1Img8" style="display:none;">-->
-
-                <div class="page1Img3 bgImg"></div>
-                <div class="page1Img0 bgImg"></div>
-
-                <div class="page1Img4 bgImg" style="display:none;"></div>
-                <div class="page1Img5 bgImg" style="display:none;"></div>
-                <div class="page1Img5b bgImg" style="display:none;"></div>
-
-                <div class="page1Img6 bgImg" style="display:none;"></div>
-                <div class="page1Img7 bgImg" style="display:none;"></div>
             </div>
         </div>
-    </div>
 
-    <div class="page2 page" style="display:none;">
-    	<div class="h832">
-        	<div class="innerDiv">
-				<div class="page2Img1 bgImg" style="overflow:visible;">
-                	<img src="{{asset('assets/images/page2Img1.jpg')}}" class="abs page2Img1Img">
+        <div class="page page2" style="display:none;">
+            <div class="innerDiv">
+            	<div class="abs hander"></div>
+            	<div class="abs man"></div>
+                <div class="abs creamOpen" style="display:none;"></div>
+                <img src="{{asset('assets/images/bullet.png')}}" class="abs buttlet" style="display:none;">
+                <div class="abs shotBtn" ontouchend="shot();"></div>
+            </div>
+        </div>
+
+        <div class="page page3" style="display:none;">
+            <div class="innerDiv">
+            	<div class="abs page3Btn">
+                	<div class="innerDiv">
+                    	<a href="javascript:void(0);" class="abs page3Btn1" onClick="showList();ga('send','event','click','好运页获奖');"><img src="{{asset('assets/images/space.gif')}}" width="93" height="107"></a>
+                        <a href="http://sale.jd.com/act/m68OdoLnK3I5FrUq.html" class="abs page3Btn2" onClick="ga('send','event','click','好运页下单');"><img src="{{asset('assets/images/space.gif')}}" width="211" height="107"></a>
+                        <a href="javascript:void(0);" class="abs page3Btn3" onClick="showNote();ga('send','event','click','好运页分享');"><img src="{{asset('assets/images/space.gif')}}" width="211" height="107"></a>
+                    </div>
                 </div>
-                <img src="{{asset('assets/images/page2Img2.png')}}" class="abs page2Img2" onClick="goGame('{{url("game")}}');" style="display:none;">
+            </div>
+        </div>
+
+        <div class="page page4" style="display:none;">
+            <div class="innerDiv">
+            	<p class="abs code" id="prize_code"></p>
+                <a href="http://m.gewara.com/movie/m/detail.xhtml?movieId=272523686" class="abs page4Btn1" onClick="ga('send','event','click','电影票页兑换');"><img src="{{asset('assets/images/page4Btn1.png')}}"></a>
+                <a href="javascript:void(0);" class="abs page4Btn2" onClick="showNote();ga('send','event','click','电影票页分享');"><img src="{{asset('assets/images/page4Btn2.png')}}"></a>
             </div>
         </div>
     </div>
 </div>
 
-<img src="{{asset('assets/images/logo.png')}}" class="abs logo">
-<a href="javascript:void(0);" class="abs musicBtn" onClick="controlBgm();"><img src="{{asset('assets/images/bgmOn.gif')}}" id="bgmOn"><img src="{{asset('assets/images/bgmOff.png')}}" id="bgmOff" style="display:none;"></a>
+<div class="popBg" style="display:none;"></div>
 
-<img src="{{asset('assets/images/shareBg.png')}}" class="shareBg" style="display:none;" onClick="closeShare();">
+<img src="{{asset('assets/images/cr.png')}}" class="cr">
+<img src="{{asset('assets/images/logo1.png')}}" class="logo1">
+<img src="{{asset('assets/images/logo2.png')}}" class="logo2">
+
+<div class="popRule" style="display:none;">
+	<div class="innerDiv">
+    	<div class="ruleBlock"><img src="{{asset('assets/images/rule.png')}}"></div>
+    	<a href="javascript:void(0);" class="abs ruleCloseBtn" onClick="closeRule();ga('send','event','click','活动详情关闭');"><img src="{{asset('assets/images/closeBtn.png')}}"></a>
+    </div>
+</div>
+
+<div class="popList" style="display:none;">
+	<div class="innerDiv">
+    	<div class="listBlock">
+			@foreach ($data as $date => $row)
+			<div class="listTime">{{$date}}</div>
+			<div class="listName">
+            	<ul>
+					@foreach ($row as $lottery)
+                	<li>{{$lottery->user->nick_name}}</li>
+					@endforeach
+                </ul>
+                <div class="clear"></div>
+            </div>
+			@endforeach
+        </div>
+    	<a href="javascript:void(0);" class="abs ruleCloseBtn" onClick="closeList();ga('send','event','click','获奖名单关闭');"><img src="{{asset('assets/images/closeBtn.png')}}"></a>
+    </div>
+</div>
+
+<img src="{{asset('assets/images/shareNote.png')}}" class="shareNote" style="display:none;" onClick="closeNote();">
 @endsection
 @section('scripts')
 <script>
-var bgmOn=true;
-function controlBgm(){
-	var bgm=document.getElementById('bgm');
-	if(bgmOn){
-		bgm.pause();
-		bgmOn=false;
-		$('#bgmOn').hide();
-		$('#bgmOff').show();
-		}
-		else{
-			bgm.play();
-			bgmOn=true;
-			$('#bgmOff').hide();
-			$('#bgmOn').show();
-			}
-	}
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-$j(document).ready(function(){
-    loadingImg();
-});
-$(document).ready(function() {
-	wxShare();
-});
+  ga('create', 'UA-78084715-1', 'auto');
+  ga('send', 'pageview');
+
 </script>
 @endsection

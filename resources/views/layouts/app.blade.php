@@ -10,15 +10,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{env("PAGE_TITLE")}}</title>
     <link rel="stylesheet" href="{{asset('assets/css/common.css')}}">
-    @yield('style')
     <script>
+        var lottery_url = '{{url("lottery")}}';
         var wxData = {};
         var wxShareUrl = '{{url("wx/share")}}';
     </script>
     <script src="{{asset('assets/js/jquery-1.9.1.min.js')}}"></script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="{{asset('assets/js/wx.js')}}"></script>
-    @yield('headerScripts')
+    <script src="{{asset('assets/js/jquery.imgpreload.min.js')}}"></script>
+    <script src="{{asset('assets/js/common.js')}}"></script>
+
     <!--移动端版本兼容 -->
     <script type="text/javascript">
         var phoneWidth = parseInt(window.screen.width);
@@ -36,18 +38,16 @@
         }
     </script>
     <!--移动端版本兼容 end -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?bae9b3b6c16c3f6aa30af8778865940a";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-    </script>
 </head>
 <body>
 @yield('content')
+<script>
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+</script>
 @yield('scripts')
 </body>
 </html>

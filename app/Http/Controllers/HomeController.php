@@ -15,17 +15,23 @@ class HomeController extends Controller
     public function index()
     {
         $wechat_user = \App\WechatUser::where('open_id', \Request::session()->get('wechat.openid'))->first();
-        $lottery = \App\Lottery::where('user_id', $wechat_user->id)->where('prize_id', '>', '0')->first();
-
-        if ($lottery != null) {
-            $prize_id = $lottery->prize_id;
-            $prize_code = $lottery->prize_code_id == null ? null : $lottery->prizeCode->code;
-        } else {
-            $prize_id = 0;
-            $prize_code = null;
+        $start_time = strtotime(date('2016-07-15'));
+        $n = ceil((time() - $start_time) / (3600 * 24));
+        $data = [];
+        for ($i = 0; $i < $n; ++$i) {
+            $num = [];
+            $timestamp = $start_time + $i * 24 * 3600;
+            $date1 = date('Y-m-d', $timestamp);
+            $date2 = date('Y-m-d 23:59:59', $timestamp);
+            $date = date('Y年m月d日',$timestamp);
+            $lotteries = \App\Lottery::where('lottery_time', '>=', $date1)
+                ->where('lottery_time', '<=', $date2)
+                ->whereNotNull('prize_id')
+                ->get();
+            $data[$date] = $lotteries;
         }
 
-        return view('index', ['prize_id' => $prize_id, 'prize_code' => $prize_code]);
+        return view('index', ['data'=>$data]);
     }
     public function game()
     {

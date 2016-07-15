@@ -45,13 +45,16 @@ class Lottery
 
         //判断当日是否中奖,已中奖则不发奖
         //一个用户只能中一次奖
-        $count1 = \App\Lottery::where('user_id', $wechat_user->id)
+        $model = \App\Lottery::where('user_id', $wechat_user->id)
             ->where('prize_id', '>', 0)
             //->where('lottery_time', '>=', date('Y-m-d', $timestamp))
             //->where('lottery_time', '<=', date('Y-m-d 23:59:59', $timestamp))
-            ->sharedLock()
-            ->count();
+            ->sharedLock();
+        $count1 = $model->count();
         if( $count1 > 0 ){
+            $lottery = $model->first();
+            $this->prize_id = $lottery->prize_id;
+            $this->prize_code = $lottery->prizeCode->code;
             return;
         }
 
