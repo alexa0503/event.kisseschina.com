@@ -41,7 +41,7 @@
                                         <td>{{ json_decode($user->nick_name) }}</td>
                                         <td>{{ $user->country }}</td>
                                         <td>{{ $user->province }}/{{ $user->city }}</td>
-                                        <td>{{ $user->create_at }}</td>
+                                        <td>{{ $user->created_at }}</td>
                                         <td>{{ $user->ip_address }}</td>
                                     </tr>
                                     @endforeach
