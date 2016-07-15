@@ -1,0 +1,99 @@
+/* Global Setting */
+body{margin:0; padding:0;text-align:left; font-size:12px; font-family:'Microsoft YaHei',Arial; background:url(http://ice-age.dev/assets/images/bg.jpg) center bottom no-repeat;}
+table{border-collapse:collapse;}
+td,th{padding:0;}
+ul,li,dd,dl,dt{margin:0; padding:0; list-style:none; word-break:break-all;}
+img{border:0;}
+p{margin:0; word-break:break-all;}
+h1,h2,h3,h4{margin:0;padding:0; font-weight:normal; font-size:14px;}
+em{ font-size:12px; font-style:normal;}
+hr{background:none;border:none;border-bottom:1px solid #CCC;#border-bottom:0;}
+.clear {clear:both;height:0;font-size:1px;line-height: 0px;}
+a{text-decoration:none; border:0; outline:none; blr:expression(this.onFocus=this.blur());}
+select,input,textarea{font-family:inherit; outline:none;}
+
+.wrapper{ width:1000px; margin:0 auto; border:none; padding:0;}
+.innerDiv{ width:100%; height:100%; position:relative;}
+.abs{ position:absolute;}
+
+.cr{ position:absolute; left:10px; top:50%; margin-top:-150px;}
+.logo1{ position:absolute; left:15px; top:15px;}
+.logo2{ position:absolute; right:15px; top:15px;}
+
+.page{ width:640px; height:1039px; display:block; overflow:hidden; position:absolute; left:50%; top:0; margin-left:-320px;}
+.pageOut{ width:640px; overflow:hidden; margin:0 auto;}
+
+/*page0*/
+.loadingBlock{ width:520px; height:160px; left:88px; top:460px;}
+.loadingBg{ background:url(http://ice-age.dev/assets/images/loadingImg2.png) 0 0 no-repeat; width:427px; height:67px; position:absolute; left:0; top:87px;}
+.loadingBar{ background:url(http://ice-age.dev/assets/images/loadingImg3.png) 0 0 no-repeat; width:400px; height:31px; position:absolute; left:16px; top:101px;}
+.loadingImg1{ left:0; top:0;}
+.loadingImg4{ left:424px; top:20px;}
+.loadingTxt{ width:100px; left:440px; top:100px; color:#142b62; font-size:34px;}
+
+/*page1*/
+.page1{ background:url(http://ice-age.dev/assets/images/page1Img1.jpg) 0 0 no-repeat;}
+.page1Btn{ background:url(http://ice-age.dev/assets/images/page1Img2.png) 0 0 no-repeat; width:640px; height:122px; left:0; bottom:0;}
+.page1Btn1{ left:112px; top:0;}
+.page1Btn2{ left:269px; top:0;}
+
+/*page2*/
+.page2{ background:url(http://ice-age.dev/assets/images/page2Img1.jpg) 0 0 no-repeat;}
+.man{ background:url(http://ice-age.dev/assets/images/man.png) 0 0 no-repeat; width:258px; height:206px; left:167px; top:818px;}
+.hander{ background:url(http://ice-age.dev/assets/images/hander.png) 0 0 no-repeat; width:100px; height:201px; left:255px; top:706px; -webkit-transform-origin:60px 195px;}
+.creamOpen{ left:155px; top:420px; background:url(http://ice-age.dev/assets/images/creamOpen.png) 0 0 no-repeat; width:292px; height:164px;}
+.creamOpen2{ -webkit-transform:scale(0.3) translate(-685px,525px);}
+.creamOpen3{ -webkit-transform:scale(0.55) translate(410px,160px);}
+.shotBtn{ background:url(http://ice-age.dev/assets/images/page2Img2.png) 0 0 no-repeat; width:152px; height:171px; left:452px; top:858px;}
+.buttlet{ left:265px; top:610px; -webkit-transform-origin:20px 230px;}
+.buttletAct{ -webkit-animation:buttletAct 0.5s 0s linear both;
+}
+@-webkit-keyframes buttletAct{
+0%{ -webkit-transform: translate(0,0);}
+100%{ -webkit-transform: translate(0,-80px);}
+}
+.buttlet2Act{ -webkit-animation:buttlet2Act 0.5s 0s linear both;
+}
+@-webkit-keyframes buttlet2Act{
+0%{ -webkit-transform: translate(0,0) rotate(-30deg);}
+100%{ -webkit-transform: translate(-20px,-60px) rotate(-30deg);}
+}
+.buttlet3Act{ -webkit-animation:buttlet3Act 0.5s 0s linear both;
+}
+@-webkit-keyframes buttlet3Act{
+0%{ -webkit-transform: translate(0,0) rotate(40deg);}
+100%{ -webkit-transform: translate(120px,-40px) rotate(40deg);}
+}
+.buttlet4Act{ -webkit-animation:buttlet4Act 0.5s 0s linear both;
+}
+@-webkit-keyframes buttlet4Act{
+0%{ -webkit-transform: translate(0,0);}
+100%{ -webkit-transform: translate(0,-1100px);}
+}
+
+/*page3*/
+.page3{ background:url(http://ice-age.dev/assets/images/page3Img1.jpg) 0 0 no-repeat;}
+.page3Btn{ background:url(http://ice-age.dev/assets/images/page3Img2.png) 0 0 no-repeat; width:640px; height:107px; left:0; bottom:0;}
+.page3Btn1{ left:51px; top:0;}
+.page3Btn2{ left:157px; top:0;}
+.page3Btn3{ left:382px; top:0;}
+
+/*page4*/
+.page4{ background:url(http://ice-age.dev/assets/images/page4Img1.jpg) 0 0 no-repeat;}
+.code{ width:270px; height:38px; line-height:38px; color:#FFF; font-size:28px; text-align:center; font-weight:bold; left:342px; top:520px;}
+.page4Btn1{ left:48px; top:878px;}
+.page4Btn2{ left:338px; top:878px;}
+
+.popBg{ width:100%; height:100%; position:fixed; left:0; top:0; background:#000; opacity:0.8; -webkit-opacity:0.8;}
+.popRule{ background:url(http://ice-age.dev/assets/images/ruleBg.png) 0 0 no-repeat; width:478px; height:851px; position:fixed; left:50%; top:50%; margin:-400px 0 0 -239px;}
+.ruleCloseBtn{ left:402px; top:40px;}
+.ruleBlock{ width:410px; height:706px; position:absolute; left:30px; top:85px;}
+
+.popList{ background:url(http://ice-age.dev/assets/images/listBg.png) 0 0 no-repeat; width:478px; height:755px; position:fixed; left:50%; top:50%; margin:-350px 0 0 -239px;}
+.listBlock{ width:410px; height:595px; position:absolute; left:30px; top:85px; overflow-x:hidden; overflow-y:auto;}
+.listTime{ padding:10px 0; color:#a9e5ff; font-size:18px; height:20px; line-height:20px;}
+.listName{ padding-bottom:10px;}
+.listName ul{ width:410px;}
+.listName ul li{ float:left; width:115px; padding:10px 20px 10px 0; color:#FFF; font-size:18px; height:20px; line-height:20px; overflow:hidden;}
+
+.shareNote{ left:0; top:65px; position:absolute;}
