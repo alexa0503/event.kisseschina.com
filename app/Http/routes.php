@@ -9,10 +9,12 @@ Route::group(['middleware' => ['web','wechat.oauth']], function () {
 });
 Route::any('/wechat', 'WechatController@serve');
 */
+/*
 Route::get('/', function(){
     return redirect('iceage');
 });
-Route::get('iceage', 'HomeController@index');
+*/
+Route::get('/', 'HomeController@index');
 Route::post('lottery', 'HomeController@lottery');
 Route::get('/wx/share', function(){
     $url = urldecode(Request::get('url'));
