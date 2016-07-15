@@ -15,7 +15,9 @@ class HomeController extends Controller
     public function index()
     {
         $wechat_user = \App\WechatUser::where('open_id', \Request::session()->get('wechat.openid'))->first();
-        $start_time = strtotime(date('2016-07-15'));
+        //$start_time = strtotime(date('2016-07-15'));
+        $lottery = \App\Lottery::orderBy('created_time','DESC')->first();
+        $start_time = strtotime($lottery->created_time);
         $n = ceil((time() - $start_time) / (3600 * 24));
         $data = [];
         for ($i = 0; $i < $n; ++$i) {
