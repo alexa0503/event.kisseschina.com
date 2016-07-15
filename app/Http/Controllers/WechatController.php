@@ -62,9 +62,9 @@ class WechatController extends Controller
                 } else {
                     $wechat = new \App\WechatUser();
                     $wechat->open_id = $openid;
-                    $wechat->created_at = Carbon::now();
+                    //$wechat->created_at = Carbon::now();
                     $wechat->ip_address = $request->getClientIp();
-                    $wechat->updated_at = null;
+                    //$wechat->updated_at = null;
                 }
                 $wechat->gender = $user_data->sex;
                 $wechat->head_img = $user_data->headimgurl;
