@@ -31,7 +31,8 @@ class CmsController extends Controller
     {
         $count = \App\WechatUser::count();
         $prizes = \App\Prize::all();
-        $start_time = strtotime(date('2016-06-30'));
+        $lottery = \App\Lottery::orderBy('created_time','DESC')->first();
+        $start_time = strtotime($lottery->created_time);
         $n = ceil((time() - $start_time) / (3600 * 24));
         $data = [];
         for ($i = 0; $i < $n; ++$i) {
