@@ -96,4 +96,4 @@ select,input,textarea{font-family:inherit; outline:none;}
 .listName ul{ width:410px;}
 .listName ul li{ float:left; width:115px; padding:10px 20px 10px 0; color:#FFF; font-size:18px; height:20px; line-height:20px; overflow:hidden;}
 
-.shareNote{ left:0; top:65px; position:absolute;}
+.shareNote{ left:0; top:90px; position:absolute;}
