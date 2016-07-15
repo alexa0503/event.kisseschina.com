@@ -54,7 +54,7 @@
                                     @foreach ($lotteries as $lottery)
                                     <tr>
                                         <td>{{$lottery->id}}</td>
-                                        <td><a href="{{url('cms/wechat',['id'=>$lottery->user->id])}}">{{ json_decode($lottery->user->nick_name) }}</a></td>
+                                        <td><a href="{{url('cms/wechat',['id'=>$lottery->user->id])}}">{{ $lottery->user->nick_name }}</a></td>
                                         <td>
                                             @if ($lottery->prizeInfo != null)
                                             {{ $lottery->prizeInfo->title }}

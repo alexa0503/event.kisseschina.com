@@ -38,7 +38,7 @@
                                     <tr>
                                     <td>{{ $user->id }}</td>
                                         <td><img title="{{$user->open_id}}" class="img-thumbnail" width="100" height="100" src="{{ $user->head_img }}" /></td>
-                                        <td>{{ json_decode($user->nick_name) }}</td>
+                                        <td>{{ $user->nick_name }}</td>
                                         <td>{{ $user->country }}</td>
                                         <td>{{ $user->province }}/{{ $user->city }}</td>
                                         <td>{{ $user->created_at }}</td>

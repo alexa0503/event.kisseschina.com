@@ -66,10 +66,10 @@ class CmsController extends Controller
     public function wechat($id = null)
     {
         if( $id == null ){
-            $wechat_users = DB::table('wechat_users')->paginate(20);
+            $wechat_users = \App\wechatUser::paginate(20);
         }
         else{
-            $wechat_users = DB::table('wechat_users')->where('id', $id)->paginate(20);
+            $wechat_users = \App\wechatUser::where('id', $id)->paginate(20);
         }
 
         return view('cms/wechat_user',['wechat_users' => $wechat_users]);
