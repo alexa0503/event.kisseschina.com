@@ -55,14 +55,14 @@ select,input,textarea{font-family:inherit; outline:none;}
 .buttlet2Act{ -webkit-animation:buttlet2Act 0.5s 0s linear both;
 }
 @-webkit-keyframes buttlet2Act{
-0%{ -webkit-transform: translate(0,0) rotate(-30deg);}
-100%{ -webkit-transform: translate(-20px,-60px) rotate(-30deg);}
+0%{ -webkit-transform: translate(-70px,60px) rotate(-30deg);}
+100%{ -webkit-transform: translate(-90px,0) rotate(-30deg);}
 }
 .buttlet3Act{ -webkit-animation:buttlet3Act 0.5s 0s linear both;
 }
 @-webkit-keyframes buttlet3Act{
 0%{ -webkit-transform: translate(0,0) rotate(40deg);}
-100%{ -webkit-transform: translate(120px,-40px) rotate(40deg);}
+100%{ -webkit-transform: translate(50px,-30px) rotate(40deg);}
 }
 .buttlet4Act{ -webkit-animation:buttlet4Act 0.5s 0s linear both;
 }
