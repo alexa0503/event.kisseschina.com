@@ -47,7 +47,7 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-wxShare();
+wxShare({});
 </script>
 @yield('scripts')
 </body>
