@@ -26,7 +26,7 @@ Route::get('/wx/share', function(){
     $wx = new EasyWeChat\Foundation\Application($options);
     $js = $wx->js;
     $js->setUrl($url);
-    $config = json_decode($js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ'), true), true);
+    $config = json_decode($js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ'), false), true);
     $share = [
       'title' => env('WECHAT_SHARE_TITLE'),
       'desc' => env('WECHAT_SHARE_DESC'),
