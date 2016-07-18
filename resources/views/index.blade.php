@@ -24,13 +24,13 @@
             </div>
         </div>
 
-        <div class="page page2" style="display:none;">
+        <div class="page page2" ontouchend="shot();" style="display:none;">
             <div class="innerDiv">
             	<div class="abs hander"></div>
             	<div class="abs man"></div>
                 <div class="abs creamOpen" style="display:none;"></div>
                 <img src="{{asset('assets/images/bullet.png')}}" class="abs buttlet" style="display:none;">
-                <div class="abs shotBtn" ontouchend="shot();"></div>
+                <div class="abs shotBtn"></div>
             </div>
         </div>
 

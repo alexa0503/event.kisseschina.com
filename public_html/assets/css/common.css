@@ -40,7 +40,7 @@ select,input,textarea{font-family:inherit; outline:none;}
 /*page2*/
 .page2{ background:url(http://event.kisseschina.com/assets/images/page2Img1.jpg) 0 0 no-repeat;}
 .man{ background:url(http://event.kisseschina.com/assets/images/man.png) 0 0 no-repeat; width:258px; height:206px; left:167px; top:818px;}
-.hander{ background:url(http://event.kisseschina.com/assets/images/hander.png) 0 0 no-repeat; width:100px; height:201px; left:255px; top:706px; -webkit-transform-origin:60px 195px;}
+.hander{ background:url(http://event.kisseschina.com/assets/images/hander.png) 0 0 no-repeat; width:100px; height:201px; left:255px; top:706px; -webkit-transform-origin:60px 180px;}
 .creamOpen{ left:155px; top:420px; background:url(http://event.kisseschina.com/assets/images/creamOpen.png) 0 0 no-repeat; width:292px; height:164px;}
 .creamOpen2{ -webkit-transform:scale(0.3) translate(-685px,525px);}
 .creamOpen3{ -webkit-transform:scale(0.55) translate(410px,160px);}
