@@ -136,6 +136,7 @@ function shot() {
             setTimeout(function() {
                 $('.buttlet').fadeOut(100);
                 $('.creamOpen').addClass('creamOpen2').show();
+				$('.choImg').addClass('choImg2').show();
             }, 500);
             setTimeout(function() {
                 goEnd();
@@ -147,6 +148,7 @@ function shot() {
             setTimeout(function() {
                 $('.buttlet').fadeOut(100);
                 $('.creamOpen').show();
+				$('.choImg').show();
             }, 500);
             setTimeout(function() {
                 goEnd();
@@ -158,6 +160,7 @@ function shot() {
             setTimeout(function() {
                 $('.buttlet').fadeOut(100);
                 $('.creamOpen').addClass('creamOpen3').show();
+				$('.choImg').addClass('choImg3').show();
             }, 500);
             setTimeout(function() {
                 goEnd();
