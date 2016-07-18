@@ -45,6 +45,7 @@ function wxShare(data){
             imgUrl: data.imgUrl || wxData.imgUrl,
             trigger: function (res) {},
             success: function (res) {
+                ga('send','event','share','微信分享');
             },
             cancel: function (res) {},
             fail: function (res) {}
@@ -54,7 +55,9 @@ function wxShare(data){
             desc: wxData.desc,
             link: wxData.link,
             imgUrl: wxData.imgUrl,
-            success: function () {},
+            success: function () {
+                ga('send','event','share','微信分享');
+            },
             cancel: function () {}
         });
     });
