@@ -33,9 +33,19 @@ select,input,textarea{font-family:inherit; outline:none;}
 
 /*page1*/
 .page1{ background:url(http://event.kisseschina.com/assets/images/page1Img1.jpg) 0 0 no-repeat;}
-.page1Btn{ background:url(http://event.kisseschina.com/assets/images/page1Img2.png) 0 0 no-repeat; width:640px; height:122px; left:0; bottom:0;}
-.page1Btn1{ left:112px; top:0;}
-.page1Btn2{ left:269px; top:0;}
+.page1Btn{ background:url(http://event.kisseschina.com/assets/images/page1Img2.png) 0 0 no-repeat; width:640px; height:162px; left:0; bottom:0;}
+.page1Btn1{ left:90px; bottom:0;}
+.page1Btn2{ left:255px; bottom:0; -webkit-transform-origin:150px 70px; -webkit-animation:page1Btn2 2s 0s linear both infinite;
+}
+@-webkit-keyframes page1Btn2{
+0%{ -webkit-transform: rotate(0deg);}
+5%{ -webkit-transform: rotate(-5deg);}
+15%{ -webkit-transform: rotate(5deg);}
+25%{ -webkit-transform: rotate(-5deg);}
+35%{ -webkit-transform: rotate(5deg);}
+40%{ -webkit-transform: rotate(0deg);}
+100%{ -webkit-transform: rotate(0deg);}
+}
 
 /*page2*/
 .page2{ background:url(http://event.kisseschina.com/assets/images/page2Img1.jpg) 0 0 no-repeat;}
@@ -44,6 +54,9 @@ select,input,textarea{font-family:inherit; outline:none;}
 .creamOpen{ left:155px; top:420px; background:url(http://event.kisseschina.com/assets/images/creamOpen.png) 0 0 no-repeat; width:292px; height:164px;}
 .creamOpen2{ -webkit-transform:scale(0.3) translate(-685px,525px);}
 .creamOpen3{ -webkit-transform:scale(0.55) translate(410px,160px);}
+.choImg{ left:235px; top:410px;}
+.choImg2{ -webkit-transform:scale(0.4) rotate(-15deg) translate(-600px,300px);}
+.choImg3{ -webkit-transform:scale(0.6) translate(380px,160px);}
 .shotBtn{ background:url(http://event.kisseschina.com/assets/images/page2Img2.png) 0 0 no-repeat; width:152px; height:171px; left:452px; top:858px;}
 .buttlet{ left:265px; top:610px; -webkit-transform-origin:20px 230px;}
 .buttletAct{ -webkit-animation:buttletAct 0.5s 0s linear both;
@@ -73,16 +86,16 @@ select,input,textarea{font-family:inherit; outline:none;}
 
 /*page3*/
 .page3{ background:url(http://event.kisseschina.com/assets/images/page3Img1.jpg) 0 0 no-repeat;}
-.page3Btn{ background:url(http://event.kisseschina.com/assets/images/page3Img2.png) 0 0 no-repeat; width:640px; height:107px; left:0; bottom:0;}
+.page3Btn{ background:url(http://event.kisseschina.com/assets/images/page3Img2.png) 0 0 no-repeat; width:640px; height:162px; left:0; bottom:0;}
 .page3Btn1{ left:51px; top:0;}
 .page3Btn2{ left:157px; top:0;}
 .page3Btn3{ left:382px; top:0;}
 
 /*page4*/
 .page4{ background:url(http://event.kisseschina.com/assets/images/page4Img1.jpg) 0 0 no-repeat;}
-.code{ width:270px; height:38px; line-height:38px; color:#FFF; font-size:28px; text-align:center; font-weight:bold; left:342px; top:520px;}
-.page4Btn1{ left:48px; top:878px;}
-.page4Btn2{ left:338px; top:878px;}
+.code{ width:270px; height:38px; line-height:38px; color:#FFF; font-size:28px; text-align:center; font-weight:bold; left:342px; top:410px;}
+.page4Btn1{ left:32px; top:850px;}
+.page4Btn2{ left:296px; top:850px;}
 
 .popBg{ width:100%; height:100%; position:fixed; left:0; top:0; background:#000; opacity:0.8; -webkit-opacity:0.8;}
 .popRule{ background:url(http://event.kisseschina.com/assets/images/ruleBg.png) 0 0 no-repeat; width:478px; height:851px; position:fixed; left:50%; top:50%; margin:-400px 0 0 -239px;}

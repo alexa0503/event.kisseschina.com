@@ -17,8 +17,8 @@
             <div class="innerDiv">
             	<div class="abs page1Btn">
                 	<div class="innerDiv">
-                    	<a href="javascript:void(0);" class="abs page1Btn1" onClick="showRule();ga('send','event','click','首页详情');"><img src="{{asset('assets/images/space.gif')}}" width="136" height="122"></a>
-                        <a href="javascript:void(0);" class="abs page1Btn2" onClick="goPage2();ga('send','event','click','首页抢票');"><img src="{{asset('assets/images/space.gif')}}" width="237" height="122"></a>
+                    	<a href="javascript:void(0);" class="abs page1Btn1" onClick="showRule();ga('send','event','click','首页详情');"><img src="{{asset('assets/images/page1Btn1.png')}}"></a>
+                        <a href="javascript:void(0);" class="abs page1Btn2" onClick="goPage2();ga('send','event','click','首页抢票');"><img src="{{asset('assets/images/page1Btn2.png')}}"></a>
                     </div>
                 </div>
             </div>
@@ -28,6 +28,7 @@
             <div class="innerDiv">
             	<div class="abs hander"></div>
             	<div class="abs man"></div>
+                <img src="{{asset('assets/images/choImg.png')}}" class="abs choImg" style="display:none;">
                 <div class="abs creamOpen" style="display:none;"></div>
                 <img src="{{asset('assets/images/bullet.png')}}" class="abs buttlet" style="display:none;">
                 <div class="abs shotBtn"></div>
@@ -38,9 +39,9 @@
             <div class="innerDiv">
             	<div class="abs page3Btn">
                 	<div class="innerDiv">
-                    	<a href="javascript:void(0);" class="abs page3Btn1" onClick="showList();ga('send','event','click','好运页获奖');"><img src="{{asset('assets/images/space.gif')}}" width="93" height="107"></a>
-                        <a href="http://sale.jd.com/act/m68OdoLnK3I5FrUq.html" class="abs page3Btn2" onClick="ga('send','event','click','好运页下单');"><img src="{{asset('assets/images/space.gif')}}" width="211" height="107"></a>
-                        <a href="javascript:void(0);" class="abs page3Btn3" onClick="showNote();ga('send','event','click','好运页分享');"><img src="{{asset('assets/images/space.gif')}}" width="211" height="107"></a>
+                    	<a href="javascript:void(0);" class="abs page3Btn1" onClick="showList();ga('send','event','click','好运页获奖');"><img src="{{asset('assets/images/space.gif')}}" width="93" height="162"></a>
+                        <a href="http://sale.jd.com/act/m68OdoLnK3I5FrUq.html" class="abs page3Btn2" onClick="ga('send','event','click','好运页下单');"><img src="{{asset('assets/images/space.gif')}}" width="211" height="162"></a>
+                        <a href="javascript:void(0);" class="abs page3Btn3" onClick="showNote();ga('send','event','click','好运页分享');"><img src="{{asset('assets/images/space.gif')}}" width="211" height="162"></a>
                     </div>
                 </div>
             </div>
