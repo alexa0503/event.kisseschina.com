@@ -26,6 +26,9 @@
 
         <div class="page page2" ontouchend="shot();" style="display:none;">
             <div class="innerDiv">
+            	<div class="abs cImg c01"></div>
+                <div class="abs cImg c02"></div>
+                <div class="abs cImg c03"></div>
             	<div class="abs hander"></div>
             	<div class="abs man"></div>
                 <img src="{{asset('assets/images/choImg.png')}}" class="abs choImg" style="display:none;">

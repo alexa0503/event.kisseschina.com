@@ -83,6 +83,10 @@ select,input,textarea{font-family:inherit; outline:none;}
 0%{ -webkit-transform: translate(0,0);}
 100%{ -webkit-transform: translate(0,-1100px);}
 }
+.cImg{ width:640px; height:1039px; display:block; left:0; bottom:0;}
+.c01{ background:url(http://event.kisseschina.com/assets/images/c1.png) 0 0 no-repeat;}
+.c02{ background:url(http://event.kisseschina.com/assets/images/c2.png) 0 0 no-repeat;}
+.c03{ background:url(http://event.kisseschina.com/assets/images/c3.png) 0 0 no-repeat;}
 
 /*page3*/
 .page3{ background:url(http://event.kisseschina.com/assets/images/page3Img1.jpg) 0 0 no-repeat;}
