@@ -34,8 +34,8 @@ select,input,textarea{font-family:inherit; outline:none;}
 /*page1*/
 .page1{ background:url(http://event.kisseschina.com/assets/images/page1Img1.jpg) 0 0 no-repeat;}
 .page1Btn{ background:url(http://event.kisseschina.com/assets/images/page1Img2.png) 0 0 no-repeat; width:640px; height:162px; left:0; bottom:0;}
-.page1Btn1{ left:90px; bottom:0;}
-.page1Btn2{ left:255px; bottom:0; -webkit-transform-origin:150px 70px; -webkit-animation:page1Btn2 2s 0s linear both infinite;
+.page1Btn1{ left:0; bottom:0;}
+.page1Btn2{ left:165px; bottom:0; -webkit-transform-origin:150px 70px; -webkit-animation:page1Btn2 2s 0s linear both infinite;
 }
 @-webkit-keyframes page1Btn2{
 0%{ -webkit-transform: rotate(0deg);}
