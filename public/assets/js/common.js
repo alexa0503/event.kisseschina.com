@@ -46,10 +46,6 @@ function loadingImg() {
     images.push("/assets/images/page4Img1.jpg");
     images.push("/assets/images/listBg.png");
     images.push("/assets/images/ruleBg.png");
-	
-	images.push("/assets/images/c1.png");
-	images.push("/assets/images/c2.png");
-	images.push("/assets/images/c3.png");
 
 
 
@@ -140,15 +136,11 @@ function shot() {
             setTimeout(function() {
                 $('.buttlet').fadeOut(100);
                 $('.creamOpen').addClass('creamOpen2').show();
-				setTimeout(function(){
-					$('.creamOpen').hide();
-					$('.c02').hide();
-					$('.choImg').addClass('choImg2').show();
-					},500);
+				$('.choImg').addClass('choImg2').show();
             }, 500);
             setTimeout(function() {
                 goEnd();
-            }, 2000);
+            }, 1500);
         } else if (shotStep >= -10 && shotStep <= 10) {
             $('.shotBtn').hide();
             clearInterval(shotTime);
@@ -156,15 +148,11 @@ function shot() {
             setTimeout(function() {
                 $('.buttlet').fadeOut(100);
                 $('.creamOpen').show();
-				setTimeout(function(){
-					$('.creamOpen').hide();
-					$('.c01').hide();
-					$('.choImg').show();
-					},500);
+				$('.choImg').show();
             }, 500);
             setTimeout(function() {
                 goEnd();
-            }, 2000);
+            }, 1500);
         } else if (shotStep >= 30 && shotStep <= 45) {
             $('.shotBtn').hide();
             clearInterval(shotTime);
@@ -172,15 +160,11 @@ function shot() {
             setTimeout(function() {
                 $('.buttlet').fadeOut(100);
                 $('.creamOpen').addClass('creamOpen3').show();
-				setTimeout(function(){
-					$('.creamOpen').hide();
-					$('.c03').hide();
-					$('.choImg').addClass('choImg3').show();
-					},500);
+				$('.choImg').addClass('choImg3').show();
             }, 500);
             setTimeout(function() {
                 goEnd();
-            }, 2000);
+            }, 1500);
         } else {
             if (shotStep >= 0) {
                 $('.buttlet').css('-webkit-transform', 'rotate(' + shotStep + 'deg)').animate({
