@@ -43,7 +43,7 @@
             	<div class="abs page3Btn">
                 	<div class="innerDiv">
                     	<a href="javascript:void(0);" class="abs page3Btn1" onClick="showList();ga('send','event','click','好运页获奖');"><img src="{{asset('assets/images/space.gif')}}" width="93" height="162"></a>
-                        <a href="http://sale.jd.com/act/m68OdoLnK3I5FrUq.html" class="abs page3Btn2" onClick="ga('send','event','click','好运页下单');"><img src="{{asset('assets/images/space.gif')}}" width="211" height="162"></a>
+                        <a href="http://h5.m.jd.com/active/42vQAJ2LET8qi6MXCKmYyjd87ZjF/index.html" class="abs page3Btn2" onClick="ga('send','event','click','好运页下单');"><img src="{{asset('assets/images/space.gif')}}" width="211" height="162"></a>
                         <a href="javascript:void(0);" class="abs page3Btn3" onClick="showNote();ga('send','event','click','好运页分享');"><img src="{{asset('assets/images/space.gif')}}" width="211" height="162"></a>
                     </div>
                 </div>
