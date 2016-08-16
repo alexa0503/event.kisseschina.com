@@ -31,8 +31,8 @@ class CmsController extends Controller
     {
         $count = \App\WechatUser::count();
         $prizes = \App\Prize::all();
-        $lottery = \App\Lottery::orderBy('created_time','DESC')->first();
-        $start_time = strtotime($lottery->created_time);
+        
+        $start_time = strtotime('2016-08-01');
         $n = ceil((time() - $start_time) / (3600 * 24));
         $data = [];
         for ($i = 0; $i < $n; ++$i) {
@@ -107,6 +107,9 @@ class CmsController extends Controller
     {
         $filename = 'lottery-'.date('YmdHis');
         $collection = \App\Lottery::whereNotNull('prize_id')->get();
+        if( count($collection) == 0){
+            return view('errors/503',['error_msg'=>'无数据']);
+        }
         $data = $collection->map(function($item){
             $code = $item->prize_code_id != null ? $item->prizeCode->code : '--';
             return [

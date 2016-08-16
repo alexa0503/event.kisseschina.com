@@ -15,9 +15,8 @@ class HomeController extends Controller
     public function index()
     {
         $wechat_user = \App\WechatUser::where('open_id', \Request::session()->get('wechat.openid'))->first();
-        //$start_time = strtotime(date('2016-07-15'));
-        $lottery = \App\Lottery::orderBy('created_time','DESC')->first();
-        $start_time = strtotime($lottery->created_time);
+        
+        $start_time = strtotime('2016-08-01');
         $n = ceil((time() - $start_time) / (3600 * 24));
         $data = [];
         for ($i = 0; $i < $n; ++$i) {
@@ -30,7 +29,9 @@ class HomeController extends Controller
                 ->where('lottery_time', '<=', $date2)
                 ->whereNotNull('prize_id')
                 ->get();
-            $data[$date] = $lotteries;
+            if( count($lotteries) > 0){
+                $data[$date] = $lotteries;
+            }
         }
 
         return view('index', ['data'=>$data]);
